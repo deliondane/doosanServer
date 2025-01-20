@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const models = require('./models');
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require('bcrypt');
@@ -136,6 +136,10 @@ app.get('/users/find-id', (req, res) => {
     const {user_id} = req.query;
 
 })
+
+// favicon.ico 요청 무시하기
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 
 app.listen(port, () => {
     console.log('서버가 돌아가고 있습니다.')
