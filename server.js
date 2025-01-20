@@ -12,9 +12,15 @@ const privateKey = 'doosanbearsauth12086389';
 
 
 app.use(express.json());
+// app.use(cors({
+//     origin: ['http://localhost:3000','https://doosanbears-react.vercel.app']
+// }));
 app.use(cors({
-    origin: ['http://localhost:3000','https://doosanbears-react.vercel.app']
+    origin: ['http://localhost:3000', 'https://doosanbears-react.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // 필요한 HTTP 메서드들을 나열합니다.
+    allowedHeaders: ['Content-Type', 'Authorization'] // 허용할 헤더
 }));
+
 
 models.sequelize.sync()
     .then(() => {
