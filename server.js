@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const models = require('./models');
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require('bcrypt');
