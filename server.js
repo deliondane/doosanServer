@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const models = require('./models');
 
-const port = 5001;
+const port = 8080;
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const bcrypt = require('bcrypt');
@@ -13,7 +13,7 @@ const privateKey = 'doosanbearsauth12086389';
 
 app.use(express.json());
 app.use(cors({
-    origin: ['https://doosanbears-react.vercel.app']
+    origin: ['http://localhost:3000','https://doosanbears-react.vercel.app']
 }));
 
 models.sequelize.sync()
